@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-middleware",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A middleware for redux that help to fetch data from rest API",
   "main": "index.js",
   "scripts": {
