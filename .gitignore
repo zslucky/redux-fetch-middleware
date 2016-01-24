@@ -1,0 +1,10 @@
+# Ignore files
+.project
+*.project
+
+# Ignore Mac sys files
+.DS_Store
+
+# Igonre node_modules
+node_modules/*
+dist/*

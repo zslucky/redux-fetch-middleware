@@ -1,0 +1,12 @@
+{
+	"preset": "airbnb",
+    "validateIndentation": 4,
+    "validateLineBreaks": false,
+    "maximumLineLength": 180,
+    "requireSpacesInsideObjectBrackets": {"allExcept": [ "}", ")", "]"]},
+    "requireParenthesesAroundArrowParam": true,
+    "requireTrailingComma": false,
+    "esnext": true,
+    "requireCamelCaseOrUpperCaseIdentifiers": "ignoreProperties",
+    "excludeFiles": ["dist/**", "node_modules/**", "app/styles/**"]
+}

@@ -1,0 +1,59 @@
+{
+  "globals": {
+    "__dirname": false,
+    "require": false,
+    "$": false,
+    "document": false,
+    "window": false,
+    "console": false,
+    "module": false,
+    "React": false,
+  },
+
+  "parser": "babel-eslint",
+
+  "plugins": [
+    "babel",
+    "react"
+  ],
+
+  "extends": "airbnb",
+
+  "rules": {
+    // Strict mode
+    "strict": [2, "global"],
+    "curly": [2, "multi-line"],
+    "new-cap": [1, { "capIsNew": false }],
+    "no-console": 0,
+    "no-debugger": 1,
+    "prefer-const": 1,
+    "prefer-template": 1,
+    "object-shorthand": 1,
+    "comma-dangle": [2, "never"],
+
+    // Code style
+    "indent": [1, 4, {"SwitchCase": 1}],
+    "quotes": [1, "single"],
+    "no-unused-vars": [2, { "args": "none" }],
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "space-before-keywords": [1, "always"],
+    "space-before-function-paren": [2, "never"],
+    "object-curly-spacing": [2, "always", {
+        "objectsInObjects": false,
+        "arraysInObjects": false
+    }],
+    "brace-style": [2, "1tbs", { "allowSingleLine": true }],
+    "spaced-comment": 0,
+    "jsx-quotes": [1, "prefer-single"],
+    "id-length": 0,
+    "comma-spacing": [2, {"before": false, "after": true}],
+    "padded-blocks": [1, "never"],
+    "space-before-blocks": [1, "always"],
+    "react/sort-comp": 0,
+    "react/jsx-boolean-value": 0,
+    "no-empty-pattern": 2,
+    "react/jsx-no-duplicate-props": [2, { "ignoreCase": true }],
+    "react/jsx-indent-props": [2, 4],
+    "react/jsx-closing-bracket-location": 0
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "redux-fetch-middleware",
+  "version": "1.0.0",
+  "description": "A middleware for redux that help to fetch data from rest API",
+  "main": "index.js",
+  "scripts": {
+    "jscs": "jscs app/js app/test",
+    "eslint": "eslint -c .eslintrc app/js app/test",
+    "lint": "npm run eslint && npm run jscs",
+    "build": "npm run lint && node ./node_modules/webpack/bin/webpack.js --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LuckyZhou880808/redux-fetch-middleware.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuckyZhou880808/redux-fetch-middleware/issues"
+  },
+  "homepage": "https://github.com/LuckyZhou880808/redux-fetch-middleware",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+  }
+}
