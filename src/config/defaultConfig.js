@@ -1,6 +1,8 @@
+'use strict';
+
 const defaultConifg = {
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-        fetchOptions: {}
+    fetchOptions: {}
 };
 
 export default defaultConifg;

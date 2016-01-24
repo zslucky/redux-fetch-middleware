@@ -1,11 +1,8 @@
+'use strict';
+
 import defaultConfig from './config/defaultConfig';
 import fetch from 'isomorphic-fetch';
 import { merge } from 'lodash';
-
-const defaultConfig = {
-    suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-    fetchOptions: {}
-};
 
 function restMiddlewareCreator(customConfig) {
     const finalConfig = merge(defaultConfig, customConfig);

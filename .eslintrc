@@ -2,22 +2,17 @@
   "globals": {
     "__dirname": false,
     "require": false,
-    "$": false,
     "document": false,
     "window": false,
     "console": false,
-    "module": false,
-    "React": false,
+    "module": false
   },
 
   "parser": "babel-eslint",
 
   "plugins": [
-    "babel",
-    "react"
+    "babel"
   ],
-
-  "extends": "airbnb",
 
   "rules": {
     // Strict mode
@@ -49,11 +44,6 @@
     "comma-spacing": [2, {"before": false, "after": true}],
     "padded-blocks": [1, "never"],
     "space-before-blocks": [1, "always"],
-    "react/sort-comp": 0,
-    "react/jsx-boolean-value": 0,
-    "no-empty-pattern": 2,
-    "react/jsx-no-duplicate-props": [2, { "ignoreCase": true }],
-    "react/jsx-indent-props": [2, 4],
-    "react/jsx-closing-bracket-location": 0
+    "no-empty-pattern": 2
   }
 }
