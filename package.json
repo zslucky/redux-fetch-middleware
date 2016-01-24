@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-middleware",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A middleware for redux that help to fetch data from rest API",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,5 @@
     "lodash": "^3.10.1",
     "isomorphic-fetch": "^2.2.1"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
