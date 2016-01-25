@@ -28,7 +28,7 @@ function restMiddlewareCreator(customConfig) {
         var getState = _ref.getState;
         return function (next) {
             return function (action) {
-                if (!action['@payload']) {
+                if (!action.$payload) {
                     return next(action);
                 }
 
@@ -38,9 +38,9 @@ function restMiddlewareCreator(customConfig) {
                 var SUCCESS = _suffix[1];
                 var FAILURE = _suffix[2];
                 var type = action.type;
-                var payload = action.payload;
-                var url = payload.url;
-                var options = payload.options;
+                var $payload = action.$payload;
+                var url = $payload.url;
+                var options = $payload.options;
 
                 (0, _lodash.merge)(fetchOptions, options);
 

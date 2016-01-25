@@ -9,13 +9,13 @@ function restMiddlewareCreator(customConfig) {
     const { suffix, fetchOptions } = finalConfig;
 
     return ({ dispatch, getState }) => (next) => (action) => {
-        if (!action['@payload']) {
+        if (!action.$payload) {
             return next(action);
         }
 
         const [REQUEST, SUCCESS, FAILURE] = suffix;
-        const { type, payload } = action;
-        const { url, options } = payload;
+        const { type, $payload } = action;
+        const { url, options } = $payload;
         merge(fetchOptions, options);
 
         // Request start
