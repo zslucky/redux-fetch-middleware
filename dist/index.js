@@ -28,7 +28,7 @@ function restMiddlewareCreator(customConfig) {
         var getState = _ref.getState;
         return function (next) {
             return function (action) {
-                if (!action.payload) {
+                if (!action['@payload']) {
                     return next(action);
                 }
 

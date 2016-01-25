@@ -9,7 +9,7 @@ function restMiddlewareCreator(customConfig) {
     const { suffix, fetchOptions } = finalConfig;
 
     return ({ dispatch, getState }) => (next) => (action) => {
-        if (!action.payload) {
+        if (!action['@payload']) {
             return next(action);
         }
 
