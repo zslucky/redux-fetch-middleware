@@ -1,3 +1,3 @@
-var restMiddlewareCreator = require('dist');
+var restMiddlewareCreator = require('./dist/index.js');
 
 export.default = restMiddlewareCreator;
