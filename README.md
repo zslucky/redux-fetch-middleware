@@ -1,4 +1,5 @@
 # redux-fetch-middleware
+[![Build Status](https://travis-ci.org/LuckyZhou880808/redux-fetch-middleware.svg?branch=master)](https://travis-ci.org/LuckyZhou880808/redux-fetch-middleware)
 A middleware for redux that help to fetch data from rest API and simplify the request flow.
 Many times we only need to do some simple request, but we need to track the request status, 
 This middleware will auto dispatch 3 status.
