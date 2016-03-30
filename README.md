@@ -1,8 +1,13 @@
 # redux-fetch-middleware
-A middleware for redux that help to fetch data from rest API and simplify the request flow
+A middleware for redux that help to fetch data from rest API and simplify the request flow.
+Many times we only need to do some simple request, but we need to track the request status, 
+This middleware will auto dispatch 3 status.
 
 ## Installation
 
+```
+npm i redux-fetch-middleware --save
+```
 
 ## Usage
 
