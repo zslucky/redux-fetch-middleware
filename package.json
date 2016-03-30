@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-middleware",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A middleware for redux that help to fetch data from rest API",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/LuckyZhou880808/redux-fetch-middleware.git"
   },
-  "Keywords":[
+  "keywords":[
     "redux",
     "fetch",
     "middleware",
