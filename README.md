@@ -29,6 +29,8 @@ applyMiddleware(...middleware);
 ```
 
 ## Configuration
+Fetch options and browser support please refer to[whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
+
 ### For global settings
 
 ```javascript
@@ -44,7 +46,7 @@ applyMiddleware(...middleware);
     // The global fetch settings for our middleware
     fetchOptions: {
 
-        // For detail please relay to [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
+        // For detail please relay to whatwg-fetch
 
     }
 }
@@ -65,7 +67,7 @@ applyMiddleware(...middleware);
         // The specific options for current request.
         options: {
 
-            // Same as [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
+            // Same as whatwg-fetch
 
         }
 
