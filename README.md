@@ -5,13 +5,13 @@ This middleware will auto dispatch 3 status.
 
 ## Installation
 
-```
+```sh
 npm i redux-fetch-middleware --save
 ```
 
 ## Usage
 
-```
+```javascript
 import restMiddlewareCreator from 'redux-fetch-middleware';
 import { applyMiddleware } from 'redux';
 
@@ -31,7 +31,7 @@ applyMiddleware(...middleware);
 ## Configuration
 ### For global settings
 
-```
+```javascript
 {
     // Suffix will auto append to every action type, then we can dispatch 
     // different situation.
@@ -52,7 +52,7 @@ applyMiddleware(...middleware);
 ```
 ### Action usage
 
-```
+```javascript
 {
     // Type name
     type: YOUR_ACTION_TYPE_NAME,
