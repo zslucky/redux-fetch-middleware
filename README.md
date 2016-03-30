@@ -60,9 +60,32 @@ applyMiddleware(...middleware);
     // @Param: $payload is the detail ajax request description
     $payload: {
         // Request url
-        url: '/data/appData.json'
+        url: '/api/somewhere',
+
+        // The specific options for current request.
+        options: {
+
+            // Same as [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
+
+        }
 
         //... TBD
+    }
+}
+```
+
+### Reducer usage
+```javascript
+function appReducer(state = initialState, action) {
+    switch (action.type) {
+        case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
+            // Do something when request start ...
+        case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
+            // Do something ...
+        case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
+            // Do something other ...
+        default:
+            return state;
     }
 }
 ```
