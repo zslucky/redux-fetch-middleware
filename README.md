@@ -29,7 +29,7 @@ applyMiddleware(...middleware);
 ```
 
 ## Configuration
-Fetch options and browser support please refer to[whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
+Fetch options and browser support please refer to [whatwg-fetch](https://www.npmjs.com/package/whatwg-fetch)
 
 ### For global settings
 
@@ -49,6 +49,8 @@ Fetch options and browser support please refer to[whatwg-fetch](https://www.npmj
         // For detail please relay to whatwg-fetch
 
     }
+
+    // TBD ...
 }
 
 ```
