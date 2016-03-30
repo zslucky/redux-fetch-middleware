@@ -80,7 +80,7 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
 ### Reducer usage
 ```javascript
-function appReducer(state = initialState, action) {
+function yourReducer(state = initialState, action) {
     switch (action.type) {
         case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
             // Do something when request start ...
@@ -96,3 +96,5 @@ function appReducer(state = initialState, action) {
 
 ## TO DO List
 1. Improve custom config for middleware.
+2. Add unit test.
+3. Add Exception and response status trace.

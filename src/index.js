@@ -23,17 +23,17 @@ function restMiddlewareCreator(customConfig) {
 
         // Catch the response from service
         fetch(url, fetchOptions)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            // Request success, dispatch the response data
-            dispatch({ type: `${type}_${SUCCESS}`, data });
-        })
-        .catch((err) => {
-            // Request failure, dispatch the error
-            dispatch({ type: `${type}_${FAILURE}`, err });
-        });
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                // Request success, dispatch the response data
+                dispatch({ type: `${type}_${SUCCESS}`, data });
+            })
+            .catch((err) => {
+                // Request failure, dispatch the error
+                dispatch({ type: `${type}_${FAILURE}`, err });
+            });
     };
 }
 
