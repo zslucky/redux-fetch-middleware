@@ -50,8 +50,18 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
         // For detail please relay to whatwg-fetch
 
-    }
+    },
 
+    // TBD ...
+    //
+    // *Here is globle config for each action
+    // 
+    // Paginate config:
+    // 
+    // Cache config:
+    // 
+    // Loading config:
+    // 
     // TBD ...
 }
 
@@ -75,8 +85,18 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
         }
 
-        //... TBD
-    }
+        // TBD ...
+        // 
+        // *Here is specific config corresponding action
+        // 
+        // Paginate config:
+        // 
+        // Cache config:
+        // 
+        // Loading config:
+        // 
+        // TBD ...
+        }
 }
 ```
 
@@ -86,10 +106,15 @@ function yourReducer(state = initialState, action) {
     switch (action.type) {
         case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
             // Do something when request start ...
+
         case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
             // Do something ...
+            // @response data is action.data
+
         case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
             // Do something other ...
+            // @response data is action.err
+
         default:
             return state;
     }
@@ -98,5 +123,6 @@ function yourReducer(state = initialState, action) {
 
 ## TO DO List
 1. Improve custom config for middleware.
-2. Add unit test.
-3. Add Exception and response status trace.
+2. Add Exception and response status trace.
+3. Add cache, paginate, loading support.
+4. Add unit test.
