@@ -19,7 +19,14 @@ import { applyMiddleware } from 'redux';
 
 const globalRestOptions = {
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-    fetchOptions: {}
+    
+    // Example config
+    fetchOptions: {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }
 };
 
 const restMiddleware = restMiddlewareCreator(globalRestOptions);
