@@ -56,6 +56,11 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
     fetchOptions: {
 
         // For detail please relay to whatwg-fetch
+        // This is the default header settings.
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
 
     },
 

@@ -7,7 +7,12 @@
  */
 const defaultConifg = {
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-    fetchOptions: {},
+    fetchOptions: {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    },
     cache: {
         enable: false
     }
