@@ -42,6 +42,8 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
 ### For global settings
 
+#### Every options have default value, please kindly reduce configuration. :shipit:
+
 ```javascript
 {
     // Suffix will auto append to every action type, then we can dispatch 
@@ -50,6 +52,7 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
     // @Second parameter - 'SUCCESS' means when we get response successfully.
     // @Third parameter - 'FAILURE' means when something error.
     // name can be defined by self.
+    // Default value is bellow.
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
 
     // The global fetch settings for our middleware
