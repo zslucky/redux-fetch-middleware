@@ -12,9 +12,6 @@ const defaultConifg = {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-    },
-    cache: {
-        enable: false
     }
 };
 
