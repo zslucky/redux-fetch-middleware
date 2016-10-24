@@ -5,7 +5,9 @@
 
 A middleware for redux that help to fetch data from rest API and simplify the request flow.
 Many times we only need to do some simple request, but we need to track the request status,
-This middleware will auto dispatch 3 status.
+This middleware will automaticly dispatch 3 status.
+
+Changes plesae refer to [CHANGELOG.md](./CHANGELOG.md)
 
 ## Installation
 
@@ -73,17 +75,12 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
     },
 
-    // TBD ...
-    //
-    // *Here is globle config for each action
-    //
-    // Paginate config:
-    //
-    // Cache config:
-    //
-    // Loading config:
-    //
-    // TBD ...
+    /* TBD ...
+     *
+     * Here is globle config for each action.
+     * Other amazing functions
+     *
+     */ TBD ...
 }
 
 ```
@@ -106,17 +103,12 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
         }
 
-        // TBD ...
-        //
-        // *Here is specific config corresponding action
-        //
-        // Paginate config:
-        //
-        // Cache config:
-        //
-        // Loading config:
-        //
-        // TBD ...
+        /* TBD ...
+         *
+         * Here is config for single action.
+         * Other amazing functions
+         *
+         */ TBD ...
         }
 }
 ```
