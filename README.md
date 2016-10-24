@@ -4,13 +4,17 @@
 [![Build Status](https://travis-ci.org/zslucky/redux-fetch-middleware.svg?branch=master)](https://travis-ci.org/zslucky/redux-fetch-middleware)
 
 A middleware for redux that help to fetch data from rest API and simplify the request flow.
-Many times we only need to do some simple request, but we need to track the request status, 
+Many times we only need to do some simple request, but we need to track the request status,
 This middleware will auto dispatch 3 status.
 
 ## Installation
 
 ```sh
 npm i redux-fetch-middleware --save
+```
+Or use `yarn`:
+```sh
+yarn add redux-fetch-middleware
 ```
 
 ## Usage
@@ -21,7 +25,7 @@ import { applyMiddleware } from 'redux';
 
 const globalRestOptions = {
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-    
+
     // Example config
     fetchOptions: {
         headers: {
@@ -48,7 +52,7 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 
 ```javascript
 {
-    // Suffix will auto append to every action type, then we can dispatch 
+    // Suffix will auto append to every action type, then we can dispatch
     // different situation.
     // @Fisrt parameter - 'Request' means when request start.
     // @Second parameter - 'SUCCESS' means when we get response successfully.
@@ -72,13 +76,13 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
     // TBD ...
     //
     // *Here is globle config for each action
-    // 
+    //
     // Paginate config:
-    // 
+    //
     // Cache config:
-    // 
+    //
     // Loading config:
-    // 
+    //
     // TBD ...
 }
 
@@ -103,15 +107,15 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
         }
 
         // TBD ...
-        // 
+        //
         // *Here is specific config corresponding action
-        // 
+        //
         // Paginate config:
-        // 
+        //
         // Cache config:
-        // 
+        //
         // Loading config:
-        // 
+        //
         // TBD ...
         }
 }

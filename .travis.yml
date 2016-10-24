@@ -6,8 +6,3 @@ install:
 script:
   - npm run lint
   - npm run build
-deploy:
-  - provider: npm
-    email: "444950680@qq.com"
-    api_key: "3504b496-1482-46bf-a554-1e81a49606b9"
-    skip_cleanup: true
