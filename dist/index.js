@@ -28,7 +28,7 @@ function restMiddlewareCreator(customConfig) {
     var dispatch = _ref.dispatch;
     return function (next) {
       return function (action) {
-        if (!action.$payload) {
+        if (!action || !action.$payload) {
           return next(action);
         }
 
