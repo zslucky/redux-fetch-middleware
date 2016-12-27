@@ -17,18 +17,18 @@ function restMiddlewareCreator(customConfig) {
     const opts = merge({}, fetchOptions, options);
 
     // Request start
-    dispatch({ type: `${type}_${REQUEST}` });
+    dispatch( Object.assign({}, action, { type: `${type}_${REQUEST}` }) );
 
     // Catch the response from service
     return fetch(url, opts)
       .then(response => response.json())
       .then((data) => {
         // Request success, dispatch the response data
-        dispatch({ type: `${type}_${SUCCESS}`, data });
+        dispatch( Object.assign({}, action, { type: `${type}_${SUCCESS}`, data }) );
       })
       .catch((err) => {
         // Request failure, dispatch the error
-        dispatch({ type: `${type}_${FAILURE}`, err });
+        dispatch( Object.assign({}, action, { type: `${type}_${FAILURE}`, err }) );
       });
   };
 }
