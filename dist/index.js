@@ -38,24 +38,25 @@ function restMiddlewareCreator(customConfig) {
             FAILURE = _suffix[2];
 
         var type = action.type,
-            $payload = action.$payload;
+            $payload = action.$payload,
+            $props = action.$props;
         var url = $payload.url,
             options = $payload.options;
 
         var opts = (0, _lodash.merge)({}, fetchOptions, options);
 
         // Request start
-        dispatch(Object.assign({}, action, { type: type + '_' + REQUEST }));
+        dispatch({ type: type + '_' + REQUEST, $props: $props });
 
         // Catch the response from service
         return (0, _isomorphicFetch2.default)(url, opts).then(function (response) {
           return response.json();
         }).then(function (data) {
           // Request success, dispatch the response data
-          dispatch(Object.assign({}, action, { type: type + '_' + SUCCESS, data: data }));
+          dispatch({ type: type + '_' + SUCCESS, data: data, $props: $props });
         }).catch(function (err) {
           // Request failure, dispatch the error
-          dispatch(Object.assign({}, action, { type: type + '_' + FAILURE, err: err }));
+          dispatch({ type: type + '_' + FAILURE, err: err, $props: $props });
         });
       };
     };
