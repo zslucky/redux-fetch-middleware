@@ -20,8 +20,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function restMiddlewareCreator(customConfig) {
   var finalConfig = (0, _lodash.merge)(_defaultConfig2.default, customConfig);
-  var suffix = finalConfig.suffix;
-  var fetchOptions = finalConfig.fetchOptions;
+  var suffix = finalConfig.suffix,
+      fetchOptions = finalConfig.fetchOptions;
 
 
   return function (_ref) {
@@ -32,30 +32,30 @@ function restMiddlewareCreator(customConfig) {
           return next(action);
         }
 
-        var _suffix = _slicedToArray(suffix, 3);
+        var _suffix = _slicedToArray(suffix, 3),
+            REQUEST = _suffix[0],
+            SUCCESS = _suffix[1],
+            FAILURE = _suffix[2];
 
-        var REQUEST = _suffix[0];
-        var SUCCESS = _suffix[1];
-        var FAILURE = _suffix[2];
-        var type = action.type;
-        var $payload = action.$payload;
-        var url = $payload.url;
-        var options = $payload.options;
+        var type = action.type,
+            $payload = action.$payload;
+        var url = $payload.url,
+            options = $payload.options;
 
         var opts = (0, _lodash.merge)({}, fetchOptions, options);
 
         // Request start
-        dispatch({ type: type + '_' + REQUEST });
+        dispatch(Object.assign({}, action, { type: type + '_' + REQUEST }));
 
         // Catch the response from service
         return (0, _isomorphicFetch2.default)(url, opts).then(function (response) {
           return response.json();
         }).then(function (data) {
           // Request success, dispatch the response data
-          dispatch({ type: type + '_' + SUCCESS, data: data });
+          dispatch(Object.assign({}, action, { type: type + '_' + SUCCESS, data: data }));
         }).catch(function (err) {
           // Request failure, dispatch the error
-          dispatch({ type: type + '_' + FAILURE, err: err });
+          dispatch(Object.assign({}, action, { type: type + '_' + FAILURE, err: err }));
         });
       };
     };
