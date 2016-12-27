@@ -12,23 +12,23 @@ function restMiddlewareCreator(customConfig) {
     }
 
     const [REQUEST, SUCCESS, FAILURE] = suffix;
-    const { type, $payload } = action;
+    const { type, $payload, $props } = action;
     const { url, options } = $payload;
     const opts = merge({}, fetchOptions, options);
 
     // Request start
-    dispatch(Object.assign({}, action, { type: `${type}_${REQUEST}` }));
+    dispatch({ type: `${type}_${REQUEST}`, $props });
 
     // Catch the response from service
     return fetch(url, opts)
       .then(response => response.json())
       .then((data) => {
         // Request success, dispatch the response data
-        dispatch(Object.assign({}, action, { type: `${type}_${SUCCESS}`, data }));
+        dispatch({ type: `${type}_${SUCCESS}`, data, $props });
       })
       .catch((err) => {
         // Request failure, dispatch the error
-        dispatch(Object.assign({}, action, { type: `${type}_${FAILURE}`, err }));
+        dispatch({ type: `${type}_${FAILURE}`, err, $props });
       });
   };
 }
