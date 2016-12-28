@@ -144,5 +144,4 @@ function yourReducer(state = initialState, action) {
 ## TO DO List
 1. [ ] Improve custom config for middleware.
 2. [ ] Add Exception and response status trace.
-3. [ ] Add cache, paginate, loading support.
-4. [ ] Add unit test.
+3. [ ] Add unit test.
