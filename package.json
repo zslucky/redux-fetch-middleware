@@ -40,6 +40,6 @@
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.5",
     "babel-preset-es2015": "^6.3.13",
-    "freelint": "^3.0.1"
+    "freelint": "3.1.1"
   }
 }

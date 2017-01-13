@@ -90,11 +90,11 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
 {
     // Type name
     type: YOUR_ACTION_TYPE_NAME,
-	// Your props transition to reducers
-	$props: {
-		a: 10,
-		b: 20
-	},
+    // Your props transition to reducers
+    $props: {
+        a: 10,
+        b: 20
+    },
     // @Param: $payload is the detail ajax request description
     $payload: {
         // Request url
@@ -123,17 +123,17 @@ function yourReducer(state = initialState, action) {
     switch (action.type) {
         case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
             // Do something when request start ...
-			// @response $props is action.$props
+            // @response $props is action.$props
 
         case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
             // Do something ...
             // @response data is action.data
-			// @response $props is action.$props
+            // @response $props is action.$props
 
         case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
             // Do something other ...
             // @response data is action.err
-			// @response $props is action.$props
+            // @response $props is action.$props
 
         default:
             return state;
@@ -144,5 +144,4 @@ function yourReducer(state = initialState, action) {
 ## TO DO List
 1. [ ] Improve custom config for middleware.
 2. [ ] Add Exception and response status trace.
-3. [ ] Add cache, paginate, loading support.
-4. [ ] Add unit test.
+3. [ ] Add unit test.
