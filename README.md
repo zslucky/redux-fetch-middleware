@@ -124,16 +124,19 @@ function yourReducer(state = initialState, action) {
         case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
             // Do something when request start ...
             // @response $props is action.$props
+            // @response $uid is action.$uid
 
         case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
             // Do something ...
             // @response data is action.data
             // @response $props is action.$props
+            // @response $uid is action.$uid
 
         case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
             // Do something other ...
             // @response data is action.err
             // @response $props is action.$props
+            // @response $uid is action.$uid
 
         default:
             return state;
