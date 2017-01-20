@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-middleware",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A middleware for redux that help to fetch data from rest API",
   "main": "dist/index.js",
   "scripts": {
@@ -34,7 +34,8 @@
   "homepage": "https://github.com/zslucky/redux-fetch-middleware",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "lodash.merge": "^4.6.0"
+    "lodash.merge": "^4.6.0",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
