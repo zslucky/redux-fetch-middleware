@@ -91,7 +91,7 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
     // Type name
     type: YOUR_ACTION_TYPE_NAME,
     // Your props transition to reducers
-    $props: {
+    meta: {
         a: 10,
         b: 20
     },
@@ -99,7 +99,14 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
     $payload: {
         // Request url
         url: '/api/somewhere',
-
+        // React on response event. If this function return === false, then to SUCCESS reducer data = null
+        onResponse: (response, meta, type) {
+            if (response.status != 200) {
+                return false;
+            }
+        }
+        // Method type to parse response. Available values: json, text, formData, blob, arrayBuffer (fetch methods). Default: json
+        responseType: 'text',
         // The specific options for current request.
         options: {
 
@@ -123,26 +130,32 @@ function yourReducer(state = initialState, action) {
     switch (action.type) {
         case `${YOUR_ACTION_TYPE_NAME}_REQUEST`:
             // Do something when request start ...
-            // @response $props is action.$props
-            // @response $uid is action.$uid
+            // @response meta is action.meta
+            // @response $uid is action.meta.$uid
 
         case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
             // Do something ...
             // @response data is action.data
-            // @response $props is action.$props
-            // @response $uid is action.$uid
+            // @response meta is action.meta
+            // @response $uid is action.meta.$uid
+            // @response $response is action.meta.$response
 
         case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
             // Do something other ...
             // @response data is action.err
-            // @response $props is action.$props
-            // @response $uid is action.$uid
+            // @response meta is action.meta
+            // @response $uid is action.meta.$uid
+            // @response $response is action.meta.$response
 
         default:
             return state;
     }
 }
 ```
+## Migrate from v2.* to v.3
+1. Replace `$props` to `meta` in your action and reducers .
+2. Replace `$uid` to `meta.$uid` in your reducers.
+3. Profit!
 
 ## TO DO List
 1. [ ] Improve custom config for middleware.
