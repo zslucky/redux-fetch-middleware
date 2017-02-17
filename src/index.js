@@ -46,7 +46,7 @@ function restMiddlewareCreator(customConfig) {
         resultMeta = merge(
           {},
           { $response: response },
-          (debug ? { $requestOption: opts } : {}),
+          (debug ? { $requestOptions: opts } : {}),
           preMeta
         );
         if (
