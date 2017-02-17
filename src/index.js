@@ -35,7 +35,12 @@ function restMiddlewareCreator(customConfig) {
     const finalRType = checkResponseType($payload.responseType || configRType);
     // Generate UID request if meta.$uid is empty
     const uid = meta && meta.$uid ? meta.$uid : uuid.v4();
-    const preMeta = merge({}, { $uid: uid }, meta);
+    const preMeta = merge(
+      {},
+      { $uid: uid },
+      (debug ? { $requestOptions: opts } : {}),
+      meta
+    );
     let resultMeta = null;
     // Request start
     dispatch({ type: `${type}_${REQUEST}`, meta: preMeta });
@@ -43,12 +48,7 @@ function restMiddlewareCreator(customConfig) {
     // Catch the response from service
     return fetch(url, opts)
       .then((response) => {
-        resultMeta = merge(
-          {},
-          { $response: response },
-          (debug ? { $requestOptions: opts } : {}),
-          preMeta
-        );
+        resultMeta = merge({}, { $response: response }, preMeta);
         if (
           onResponse
           && (onResponse instanceof Function)
