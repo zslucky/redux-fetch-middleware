@@ -27,7 +27,10 @@ import { applyMiddleware } from 'redux';
 
 const globalRestOptions = {
     suffix: ['REQUEST', 'SUCCESS', 'FAILURE'],
-
+    // if `debug` is true, then in reducer `action.meta.$requestOptions`
+    debug: true,
+    // Set global value by `responseType`. Available values: json, text, formData, blob, arrayBuffer (fetch methods). Default: json
+    responseType: 'text',
     // Example config
     fetchOptions: {
         headers: {
@@ -132,6 +135,7 @@ function yourReducer(state = initialState, action) {
             // Do something when request start ...
             // @response meta is action.meta
             // @response $uid is action.meta.$uid
+            // @response $requestOptions is action.meta.$requestOptions (if in config set `debug` is true)
 
         case `${YOUR_ACTION_TYPE_NAME}_SUCCESS`:
             // Do something ...
@@ -139,6 +143,7 @@ function yourReducer(state = initialState, action) {
             // @response meta is action.meta
             // @response $uid is action.meta.$uid
             // @response $response is action.meta.$response
+            // @response $requestOptions is action.meta.$requestOptions (if in config set `debug` is true)
 
         case `${YOUR_ACTION_TYPE_NAME}_FAILURE`:
             // Do something other ...
@@ -146,6 +151,7 @@ function yourReducer(state = initialState, action) {
             // @response meta is action.meta
             // @response $uid is action.meta.$uid
             // @response $response is action.meta.$response
+            // @response $requestOptions is action.meta.$requestOptions (if in config set `debug` is true)
 
         default:
             return state;
