@@ -3,6 +3,9 @@ import merge from 'lodash.merge';
 import uuid from 'uuid';
 import defaultConfig from './config/defaultConfig';
 
+// Default response type for module
+const defaultRType = 'json';
+
 function checkResponseType(type) {
   const validType = String(type).toLowerCase();
   const types = {
@@ -12,12 +15,12 @@ function checkResponseType(type) {
     blob: true,
     arrayBuffer: true,
   };
-  return types[validType] ? validType : 'json';
+  return types[validType] ? validType : defaultRType;
 }
 
 function restMiddlewareCreator(customConfig) {
   const finalConfig = merge(defaultConfig, customConfig);
-  const { suffix, fetchOptions } = finalConfig;
+  const { suffix, fetchOptions, responseType: configRType, debug } = finalConfig;
 
   return ({ dispatch }) => next => (action) => {
     if (!action || !action.$payload) {
@@ -29,7 +32,7 @@ function restMiddlewareCreator(customConfig) {
     const { url, options, onResponse } = $payload;
     const opts = merge({}, fetchOptions, options);
     // Check and get response type
-    const responseType = checkResponseType($payload.responseType);
+    const finalRType = checkResponseType($payload.responseType || configRType);
     // Generate UID request if meta.$uid is empty
     const uid = meta && meta.$uid ? meta.$uid : uuid.v4();
     const preMeta = merge({}, { $uid: uid }, meta);
@@ -40,7 +43,12 @@ function restMiddlewareCreator(customConfig) {
     // Catch the response from service
     return fetch(url, opts)
       .then((response) => {
-        resultMeta = merge({}, { $response: response }, preMeta);
+        resultMeta = merge(
+          {},
+          { $response: response },
+          (debug ? { $requestOption: opts } : {}),
+          preMeta
+        );
         if (
           onResponse
           && (onResponse instanceof Function)
@@ -48,7 +56,7 @@ function restMiddlewareCreator(customConfig) {
         ) {
           return null;
         }
-        return response[responseType]();
+        return response[finalRType]();
       })
       .then((data) => {
         // Request success, dispatch the response data
