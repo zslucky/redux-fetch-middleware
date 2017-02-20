@@ -108,6 +108,12 @@ Fetch options and browser support please refer to [whatwg-fetch](https://www.npm
                 return false;
             }
         }
+        // React pre fetch edit options. Include merged all options. Return the last options.
+        preFetchOptions: (options) {
+            // For example - remove Content-Type, in order to browser auto detect and auto write Content-Type value (Required to send file).
+            delete options.headers['Content-Type'];
+            return options;
+        }
         // Method type to parse response. Available values: json, text, formData, blob, arrayBuffer (fetch methods). Default: json
         responseType: 'text',
         // The specific options for current request.

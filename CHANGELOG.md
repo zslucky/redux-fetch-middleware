@@ -1,6 +1,16 @@
 # redux-fetch-middleware Change Log
 All notable changes to this project will be documented in this file.
 This project adheres to SamVer 2.0. ([Semantic Versioning](http://semver.org/)).
+## 3.0.2 - 2017-02-20
+
+- Add `preFetchOptions` to `$payload`.
+
+## 3.0.1 - 2017-02-17
+
+- Add `debug` to config.
+- Add `responseType` to global config.
+- Update babel modules.
+
 ## 3.0.0 - 2017-01-20
 
 - Replace `$props` to `meta`.
