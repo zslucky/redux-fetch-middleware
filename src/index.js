@@ -29,8 +29,12 @@ function restMiddlewareCreator(customConfig) {
 
     const [REQUEST, SUCCESS, FAILURE] = suffix;
     const { type, $payload, meta } = action;
-    const { url, options, onResponse } = $payload;
-    const opts = merge({}, fetchOptions, options);
+    const { url, options, onResponse, preFetchOptions } = $payload;
+    let opts = merge({}, fetchOptions, options);
+    // Edit fetch options in preFetchOptions method
+    if (preFetchOptions instanceof Function) {
+      opts = preFetchOptions(opts);
+    }
     // Check and get response type
     const finalRType = checkResponseType($payload.responseType || configRType);
     // Generate UID request if meta.$uid is empty
