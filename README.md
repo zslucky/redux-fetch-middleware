@@ -9,6 +9,8 @@ This middleware will automaticly dispatch 3 status.
 
 Changes plesae refer to [CHANGELOG.md](./CHANGELOG.md)
 
+**In V4 version, we removed `isomorphic-fetch` dependency, as this is only a polyfill, you can add it everywhere by yourself in your own project if you need it.**
+
 ## Installation
 
 ```sh
@@ -164,12 +166,14 @@ function yourReducer(state = initialState, action) {
     }
 }
 ```
+## Migrate from v3 to v4
+1. Remove `isomophic-fetch` dependency.
+
 ## Migrate from v2.* to v.3
 1. Replace `$props` to `meta` in your action and reducers .
 2. Replace `$uid` to `meta.$uid` in your reducers.
 3. Profit!
 
 ## TO DO List
-1. [ ] Improve custom config for middleware.
-2. [ ] Add Exception and response status trace.
-3. [ ] Add unit test.
+1. [ ] Add custom Exception config and response status trace.
+2. [ ] Improve unit test.

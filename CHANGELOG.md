@@ -1,6 +1,12 @@
 # redux-fetch-middleware Change Log
 All notable changes to this project will be documented in this file.
 This project adheres to SamVer 2.0. ([Semantic Versioning](http://semver.org/)).
+
+## 4.0.0 - 2017-11-20
+
+- Remove `isomophic-fetch` dependency.
+- Add Unit test to make middleware more robust.
+
 ## 3.0.2 - 2017-02-20
 
 - Add `preFetchOptions` to `$payload`.

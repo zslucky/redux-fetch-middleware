@@ -1,16 +1,21 @@
 {
   "name": "redux-fetch-middleware",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "A middleware for redux that help to fetch data from rest API",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "freelint",
-    "test": "mocha --compilers js:babel-core/register ./test/*/*.js",
-    "build": "npm run lint && babel src --out-dir dist"
+    "lint": "standard | snazzy",
+    "test": "mocha --compilers js:babel-core/register ./test/*.js",
+    "build": "npm run lint && npm run test && babel src --out-dir dist"
   },
-  "freelint-base": {
+  "standard": {
     "ignore": [
       "dist/**"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "before"
     ]
   },
   "repository": {
@@ -41,6 +46,12 @@
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-preset-es2015": "^6.22.0",
-    "freelint": "3.1.1"
+    "chai": "^4.1.2",
+    "freelint": "3.1.1",
+    "mocha": "^4.0.1",
+    "nock": "^9.1.2",
+    "sinon-chai": "^2.14.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
   }
 }
