@@ -1,12 +1,12 @@
 import fetch from 'isomorphic-fetch'
 import merge from 'lodash.merge'
 import uuid from 'uuid'
-import defaultConfig from './config/defaultConfig'
+import defaultConfig from './config/default-config'
 
 /**
  * Default response type for module
  */
-const defaultRType = 'json'
+const defaultRType = 'json';
 
 /**
  * Check response type
@@ -15,16 +15,16 @@ const defaultRType = 'json'
  *
  * @return {boolean} Is valid response type
  */
-function checkResponseType (type) {
-  const validType = String(type).toLowerCase()
-  const types = {
-    json: true,
-    text: true,
-    formData: true,
-    blob: true,
-    arrayBuffer: true
-  }
-  return types[validType] ? validType : defaultRType
+function checkResponseType(type) {
+    const validType = String(type).toLowerCase();
+    const types = {
+        json: true,
+        text: true,
+        formData: true,
+        blob: true,
+        arrayBuffer: true
+    };
+    return types[validType] ? validType : defaultRType
 }
 
 /**
@@ -34,66 +34,67 @@ function checkResponseType (type) {
  *
  * @return {function} The middleware function
  */
-function restMiddlewareCreator (customConfig) {
-  const finalConfig = merge(defaultConfig, customConfig)
-  const { suffix, fetchOptions, responseType: configRType, debug } = finalConfig
+function restMiddlewareCreator(customConfig) {
+    const finalConfig = merge(defaultConfig, customConfig);
+    const { suffix, fetchOptions, responseType: configRType, debug } = finalConfig;
 
-  /**
-   * The fetch middleware
-   */
-  return ({ dispatch }) => next => (action) => {
-    if (!action || !action.$payload) {
-      return next(action)
-    }
-
-    const [REQUEST, SUCCESS, FAILURE] = suffix
-    const { type, $payload, meta } = action
-    const { url, options, onResponse, preFetchOptions } = $payload
-    let opts = merge({}, fetchOptions, options)
-    // Edit fetch options in preFetchOptions method
-    if (preFetchOptions instanceof Function) {
-      opts = preFetchOptions(opts)
-    }
-    // Check and get response type
-    const finalRType = checkResponseType($payload.responseType || configRType)
-    // Generate UID request if meta.$uid is empty
-    const uid = meta && meta.$uid ? meta.$uid : uuid.v4()
-    const preMeta = merge(
-      {},
-      { $uid: uid },
-      (debug ? { $requestOptions: opts } : {}),
-      meta
-    )
-    let resultMeta = null
-    // Request start
-    dispatch({ type: `${type}_${REQUEST}`, meta: preMeta })
-
-    // Catch the response from service
-    return fetch(url, opts)
-      .then((response) => {
-        resultMeta = merge({}, { $response: response }, preMeta)
-        if (
-          onResponse &&
-          (onResponse instanceof Function) &&
-          onResponse(response, preMeta, type) === false
-        ) {
-          return null
+    /*
+     * The fetch middleware
+     * @return Promise the fetch response
+     */
+    return ({ dispatch }) => next => (action) => {
+        if (!action || !action.$payload) {
+            return next(action)
         }
-        return response[finalRType]()
-      })
-      .then((data) => {
-        // Request success, dispatch the response data
-        dispatch({ type: `${type}_${SUCCESS}`, data, meta: resultMeta })
 
-        return data
-      })
-      .catch((err) => {
-        console.log('err')
-        console.log(err)
-        // Request failure, dispatch the error
-        dispatch({ type: `${type}_${FAILURE}`, err, meta: resultMeta })
-      })
-  }
+        const [REQUEST, SUCCESS, FAILURE] = suffix;
+        const { type, $payload, meta, ...otherProps } = action;
+        const { url, options, onResponse, preFetchOptions } = $payload;
+        let opts = merge({}, fetchOptions, options);
+        // Edit fetch options in preFetchOptions method
+        if (preFetchOptions instanceof Function) {
+            opts = preFetchOptions(opts)
+        }
+        // Check and get response type
+        const finalRType = checkResponseType($payload.responseType || configRType);
+        // Generate UID request if meta.$uid is empty
+        const uid = meta && meta.$uid ? meta.$uid : uuid.v4();
+        const preMeta = merge(
+            {},
+            { $uid: uid },
+            (debug ? { $requestOptions: opts } : {}),
+            meta
+        );
+        let resultMeta = null;
+        // Request start
+        dispatch({ ...otherProps, type: `${type}_${REQUEST}`, meta: preMeta });
+
+        // Catch the response from service
+        return fetch(url, opts)
+            .then((response) => {
+                resultMeta = merge({}, { $response: response }, preMeta);
+                if (
+                    onResponse &&
+                    (onResponse instanceof Function) &&
+                    onResponse(response, preMeta, type) === false
+                ) {
+                    return null
+                }
+                return response[finalRType]()
+            })
+            .then((data) => {
+                // Request success, dispatch the response data
+                dispatch({ ...otherProps, type: `${type}_${SUCCESS}`, data, meta: resultMeta });
+
+                return data
+            })
+            .catch((err) => {
+                console.log('err');
+                console.log(err);
+                // Request failure, dispatch the error
+                dispatch({ ...otherProps, type: `${type}_${FAILURE}`, err, meta: resultMeta })
+            })
+    }
 }
 
 /**
