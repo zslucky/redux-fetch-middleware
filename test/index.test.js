@@ -1,3 +1,4 @@
+import 'isomorphic-fetch'
 import chai from 'chai'
 import nock from 'nock'
 // import fetchMock from 'fetch-mock'

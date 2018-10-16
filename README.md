@@ -2,6 +2,7 @@
 
 [![Join the chat at https://gitter.im/zslucky/redux-fetch-middleware](https://badges.gitter.im/zslucky/redux-fetch-middleware.svg)](https://gitter.im/zslucky/redux-fetch-middleware?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/zslucky/redux-fetch-middleware.svg?branch=master)](https://travis-ci.org/zslucky/redux-fetch-middleware)
+[![Known Vulnerabilities](https://snyk.io/test/github/zslucky/redux-fetch-middleware/badge.svg?targetFile=package.json)](https://snyk.io/test/github/zslucky/redux-fetch-middleware?targetFile=package.json)
 
 A middleware for redux that help to fetch data from rest API and simplify the request flow.
 Many times we only need to do some simple request, but we need to track the request status,

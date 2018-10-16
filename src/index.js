@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch'
 import merge from 'lodash.merge'
 import uuid from 'uuid'
 import defaultConfig from './config/defaultConfig'
@@ -88,8 +87,6 @@ function restMiddlewareCreator (customConfig) {
         return data
       })
       .catch((err) => {
-        console.log('err')
-        console.log(err)
         // Request failure, dispatch the error
         dispatch({ type: `${type}_${FAILURE}`, err, meta: resultMeta })
       })
