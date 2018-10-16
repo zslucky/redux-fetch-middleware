@@ -6,9 +6,11 @@ install:
 script:
   - npm run lint
   - npm run test
+  - npm run build
 deploy:
   provider: npm
   email: $NPM_EMAIL
   api_key: $NPM_AUTH_TOKEN
+  skip_cleanup: true
   on:
     branch: master

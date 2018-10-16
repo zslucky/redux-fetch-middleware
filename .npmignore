@@ -1,3 +1,10 @@
 npm-debug.log
-test/*
-node_modules/*
+src
+test
+node_modules
+yarn.lock
+.travis.yml
+.babelrc
+.editorconfig
+.npmignore
+yarn-error.log
