@@ -88,7 +88,8 @@ function restMiddlewareCreator (customConfig) {
       })
       .catch((err) => {
         // Request failure, dispatch the error
-        dispatch({ type: `${type}_${FAILURE}`, err, meta: resultMeta })
+        dispatch({ type: `${type}_${FAILURE}`, err, meta: resultMeta });
+        throw err;
       })
   }
 }
